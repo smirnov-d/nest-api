@@ -16,7 +16,7 @@ import { Roles } from '../auth/decorators/roles.decorator';
 import { getHash } from '../common/utils';
 
 @Controller('users')
-@Roles(Role.Admin)
+@Roles(Role.SuperAdmin)
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 

@@ -13,15 +13,16 @@ export const getMongoConfig = async (
 const getMongoUrl = (configService: ConfigService): string => {
   return (
     'mongodb://' +
-    // configService.get('DATABASE_USER') +
-    // ':' +
-    // configService.get('DATABASE_PASSWORD') +
-    // '@' +
+    configService.get('DATABASE_USER') +
+    ':' +
+    configService.get('DATABASE_PASSWORD') +
+    '@' +
     configService.get('DATABASE_HOST') +
     ':' +
     configService.get('DATABASE_PORT') +
     '/' +
-    configService.get('DATABASE_NAME')
+    configService.get('DATABASE_NAME') +
+    '?authSource=admin&readPreference=primary'
   );
 };
 

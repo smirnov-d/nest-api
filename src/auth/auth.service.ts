@@ -19,7 +19,7 @@ export class AuthService {
     private jwtService: JwtService,
   ) {}
 
-  async register(dto: CreateUserDto): Promise<User> {
+  async register(dto: AuthDto): Promise<User> {
     if (await this.usersService.findByEmail(dto.email)) {
       throw new UnauthorizedException(
         `This email already exists: ${dto.email}`,
